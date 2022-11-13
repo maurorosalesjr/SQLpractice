@@ -14,5 +14,13 @@
 
 
 -- Task 4: inserting dummy data
-INSERT INTO products (price, name, description, stock, image_path)
-VALUES (12.99, 'A Book', 'This is a book with pages and stuff', 39, 'uploads/images/products/a-book.jpg')
+-- INSERT INTO products (price, name, description, stock, image_path)
+-- VALUES (12.99, 'A Book', 'This is a book with pages and stuff', 39, 'uploads/images/products/a-book.jpg')
+
+-- Task 5: add contraints
+ALTER TABLE products 
+MODIFY COLUMN name VARCHAR(200) NOT NULL,
+MODIFY COLUMN price NUMERIC(10,2) NOT NULL CHECK (price > 0),
+MODIFY COLUMN description TEXT NOT NULL,
+MODIFY COLUMN stock INT CHECK(stock >= 0);
+
